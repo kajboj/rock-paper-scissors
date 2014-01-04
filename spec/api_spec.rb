@@ -10,6 +10,12 @@ describe 'API' do
     Sinatra::Application
   end
 
+  before do
+    Bot.stub(:start)
+    Bot.stub(:move)
+    Bot.stub(:opponent_move)
+  end
+
   describe 'POST /start' do
     let(:params) do
       {
