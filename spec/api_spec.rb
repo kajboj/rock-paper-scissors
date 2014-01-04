@@ -7,7 +7,7 @@ describe 'API' do
   include Rack::Test::Methods
 
   def app
-    Sinatra::Application
+    RockPaperScissors
   end
 
   before do
