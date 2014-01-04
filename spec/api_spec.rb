@@ -1,5 +1,17 @@
+require_relative '../web'
+
+require 'pry'
+require 'rack/test'
+
 describe 'API' do
+  include Rack::Test::Methods
+
+  def app
+    Sinatra::Application
+  end
+
   specify do
-    true.should be_true
+    get '/'
+    last_response.body.should =~ /Hello/
   end
 end
