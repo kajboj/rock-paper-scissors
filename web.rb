@@ -7,8 +7,10 @@ end
 
 post '/move' do
   Bot.opponent_move
+  nil
 end
 
 post '/start' do
   Bot.start(params)
+  nil
 end
