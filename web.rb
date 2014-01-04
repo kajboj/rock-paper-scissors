@@ -1,5 +1,11 @@
 require 'sinatra'
 
-get '/' do
-  "Hello, world!!!"
+get '/move' do
+  "SCISSORS"
+end
+
+post '/move' do
+end
+
+post '/start' do
 end
