@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-.bundle
-.rbenv-version
-=======
 *.gem
 *.rbc
 .bundle
@@ -20,4 +16,5 @@ tmp
 .yardoc
 _yardoc
 doc/
->>>>>>> c89b6702e0f3ed79729ba8b0032be1320e831580
+
+.rbenv-version
