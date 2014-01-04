@@ -52,13 +52,13 @@ describe 'API' do
 
   describe 'POST /move' do
     it 'succeeds' do
-      post '/move'
+      post '/move', {'lastOpponentMove' => 'some move'}
       last_response.status.should == 200
     end
 
     it 'tells bot about opponent move' do
-      Bot.should_receive(:opponent_move)
-      post '/move'
+      Bot.should_receive(:opponent_move).with('some move')
+      post '/move', {'lastOpponentMove' => 'some move'}
     end
   end
 end

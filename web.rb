@@ -2,15 +2,19 @@ require 'sinatra'
 require './bot'
 
 get '/move' do
-  Bot.move
+  move = Bot.move
+  puts move
+  move
 end
 
 post '/move' do
-  Bot.opponent_move
+  opponent_move = params['lastOpponentMove']
+  Bot.opponent_move(opponent_move)
   nil
 end
 
 post '/start' do
+  puts params.inspect
   Bot.start(params)
   nil
 end
