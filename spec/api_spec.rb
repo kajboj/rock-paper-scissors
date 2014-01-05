@@ -46,7 +46,7 @@ describe 'API' do
 
   describe 'POST /move' do
     it 'succeeds' do
-      post '/move', {'lastOpponentMove' => 'some move'}
+      post '/move', {'lastOpponentMove' => 'PAPER'}
       last_response.status.should == 200
     end
 
@@ -64,7 +64,7 @@ describe 'API' do
 
     it 'returns some moves from the past' do
       get '/log'
-      last_response.body.should =~ /some move/
+      last_response.body.should =~ //
     end
   end
 end

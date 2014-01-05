@@ -15,7 +15,7 @@ describe Bot do
   end
 
   specify '.opponent_move' do
-    subject.opponent_move('opponent move').should == nil
+    subject.opponent_move('PAPER').should == nil
   end
 
   specify '.move' do
