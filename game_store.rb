@@ -61,7 +61,7 @@ class GameStore
 
   class OpponentMove < LogEntry
     def to_s
-      ' - ' + @string + line_end
+      ' - ' + @string.to_s + line_end
     end
   end
 end
