@@ -1,3 +1,5 @@
+require './game_store'
+
 class Bot
   def self.start(match_params)
     store.start(match_params)
