@@ -55,4 +55,16 @@ describe 'API' do
       post '/move', {'lastOpponentMove' => 'some move'}
     end
   end
+
+  describe 'GET /log' do
+    it 'succeeds' do
+      get '/log'
+      last_response.status.should == 200
+    end
+
+    it 'returns some moves from the past' do
+      get '/log'
+      last_response.body.should =~ /some move/
+    end
+  end
 end

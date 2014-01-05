@@ -2,8 +2,7 @@ require 'sinatra'
 require './bot'
 
 get '/move' do
-  move = Bot.move
-  move
+  Bot.move
 end
 
 post '/move' do
@@ -15,4 +14,8 @@ end
 post '/start' do
   Bot.start(params)
   nil
+end
+
+get '/log' do
+  Bot.dump_history
 end

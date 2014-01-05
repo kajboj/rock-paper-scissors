@@ -5,10 +5,6 @@ require 'pry'
 describe Bot do
   subject { described_class }
 
-  let(:game_store) do
-    double('game store', opponent_move: nil)
-  end
-
   specify '.start' do
     subject.start({'game' => 'params'}).should == nil
   end
@@ -19,5 +15,9 @@ describe Bot do
 
   specify '.move' do
     subject.move.should == 'SCISSORS'
+  end
+
+  specify '.dump_history' do
+    subject.dump_history.should =~ /SCISSORS/
   end
 end
