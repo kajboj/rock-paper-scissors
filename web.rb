@@ -3,7 +3,6 @@ require './bot'
 
 get '/move' do
   move = Bot.move
-  puts move
   move
 end
 
@@ -14,7 +13,6 @@ post '/move' do
 end
 
 post '/start' do
-  puts params.inspect
   Bot.start(params)
   nil
 end
