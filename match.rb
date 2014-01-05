@@ -9,8 +9,7 @@ class Match
         'ROCK',
         'PAPER',
         'SCISSORS',
-        'DYNAMITE',
-        'WATERBOMB',
+        'DYNAMITE'
       ].sample
     end
   end

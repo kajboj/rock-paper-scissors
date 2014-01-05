@@ -14,10 +14,10 @@ describe Bot do
   end
 
   specify '.move' do
-    subject.move.should == 'SCISSORS'
+    %w(ROCK PAPER SCISSORS DYNAMITE WATERBOMB).should include(subject.move)
   end
 
   specify '.dump_history' do
-    subject.dump_history.should =~ /SCISSORS/
+    subject.dump_history.should =~ /game.*params/
   end
 end
