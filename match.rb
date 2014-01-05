@@ -8,8 +8,7 @@ class Match
       [
         'ROCK',
         'PAPER',
-        'SCISSORS',
-        'SCISSORS',
+        'SCISSORS'
       ].sample
     end
 
