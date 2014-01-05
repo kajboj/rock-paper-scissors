@@ -21,8 +21,7 @@ class Match
     if @tie and @dynamite_count > 0
       move = [
         'DYNAMITE',
-        'WATERBOMB',
-        @random_move_generator.call
+        'WATERBOMB'
       ].sample
     else
       move = @random_move_generator.call
