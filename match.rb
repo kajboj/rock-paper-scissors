@@ -15,7 +15,16 @@ class Match
   end
 
   def move
-    @random_move_generator.call
+    move = @random_move_generator.call
+
+    if move == 'DYNAMITE' and @dynamite_count <= 0
+      while move == 'DYNAMITE' do
+        move = @random_move_generator.call
+      end
+    end
+
+    @dynamite_count -= 1 if move == 'DYNAMITE'
+    move
   end
 
   def opponent_move(move)

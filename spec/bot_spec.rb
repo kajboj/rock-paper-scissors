@@ -6,7 +6,12 @@ describe Bot do
   subject { described_class }
 
   specify '.start' do
-    subject.start({'game' => 'params'}).should == nil
+    subject.start(
+      'opponentName'  => 'opponent name',
+      'pointsToWin'   => 1,
+      'maxRounds'     => 2,
+      'dynamiteCount' => 1
+    ).should == nil
   end
 
   specify '.opponent_move' do
@@ -18,6 +23,6 @@ describe Bot do
   end
 
   specify '.dump_history' do
-    subject.dump_history.should =~ /game.*params/
+    subject.dump_history.should =~ /opponentName/
   end
 end

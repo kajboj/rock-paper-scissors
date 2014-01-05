@@ -10,12 +10,29 @@ describe Match do
   let(:max_rounds)     { 6 }
   let(:dynamite_count) { 2 }
 
-  let(:random_move_generator) do
-    lambda { 'SCISSORS' }
+  describe 'playing random moves' do
+    let(:random_move_generator) do
+      lambda { 'SCISSORS' }
+    end
+
+    specify do
+      subject.move.should == 'SCISSORS'
+      subject.move.should == 'SCISSORS'
+    end
   end
 
-  specify do
-    subject.move.should == 'SCISSORS'
-    subject.move.should == 'SCISSORS'
+  describe 'playing dynamite only until we run out' do
+    let(:random_move_generator) do
+      sequence = %w(SCISSORS SCISSORS SCISSORS DYNAMITE DYNAMITE DYNAMITE DYNAMITE)
+      lambda { sequence.pop }
+    end
+
+    specify do
+      subject.move.should == 'DYNAMITE'
+      subject.move.should == 'DYNAMITE'
+      subject.move.should == 'SCISSORS'
+      subject.move.should == 'SCISSORS'
+      subject.move.should == 'SCISSORS'
+    end
   end
 end

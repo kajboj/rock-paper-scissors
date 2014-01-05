@@ -14,9 +14,9 @@ describe 'API' do
     let(:params) do
       {
         'opponentName'  => 'opponent name',
-        'pointsToWin'   => 'points to win',
-        'maxRounds'     => 'max rounds',
-        'dynamiteCount' => 'dynamite count'
+        'pointsToWin'   => '1',
+        'maxRounds'     => '2',
+        'dynamiteCount' => '1'
       }
     end
 

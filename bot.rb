@@ -36,9 +36,9 @@ class Bot
 
   def self.start_match(params)
     @match = Match.new(
-      params['pointsToWin'],
-      params['maxRounds'],
-      params['dynamiteCount']
+      Integer(params['pointsToWin']),
+      Integer(params['maxRounds']),
+      Integer(params['dynamiteCount'])
     )
   end
 end
