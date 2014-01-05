@@ -21,7 +21,7 @@ describe Match do
     end
   end
 
-  describe 'playing dynamite only after tie' do
+  describe 'playing dynamite or waterbomb after tie' do
     let(:random_move_generator) do
       sequence = %w(SCISSORS SCISSORS SCISSORS)
       lambda { sequence.pop }
@@ -38,6 +38,19 @@ describe Match do
       subject.opponent_move('DYNAMITE')
 
       subject.move.should == 'SCISSORS'
+    end
+  end
+
+  describe 'no blow ups' do
+    let(:random_move_generator) { nil }
+
+    specify do
+      10000.times do
+        subject.move
+        subject.opponent_move(
+          %w(ROCK PAPER SCISSORS DYNAMITE WATERBOMB).sample
+        )
+      end
     end
   end
 end

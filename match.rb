@@ -13,11 +13,13 @@ class Match
     end
 
     @tie = false
+
+    @opponent_dynamite_count = dynamite_count
   end
 
   def move
     if @tie and @dynamite_count > 0
-      move = 'DYNAMITE'
+      move = ['DYNAMITE', 'WATERBOMB'].sample
     else
       move = @random_move_generator.call
     end
