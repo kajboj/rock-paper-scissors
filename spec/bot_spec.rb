@@ -8,9 +8,9 @@ describe Bot do
   specify '.start' do
     subject.start(
       'opponentName'  => 'opponent name',
-      'pointsToWin'   => 1,
-      'maxRounds'     => 2,
-      'dynamiteCount' => 1
+      'pointsToWin'   => '1',
+      'maxRounds'     => '2',
+      'dynamiteCount' => '1'
     ).should == nil
   end
 

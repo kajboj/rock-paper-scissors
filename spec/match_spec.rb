@@ -21,17 +21,22 @@ describe Match do
     end
   end
 
-  describe 'playing dynamite only until we run out' do
+  describe 'playing dynamite only after tie' do
     let(:random_move_generator) do
-      sequence = %w(SCISSORS SCISSORS SCISSORS DYNAMITE DYNAMITE DYNAMITE DYNAMITE)
+      sequence = %w(SCISSORS SCISSORS SCISSORS)
       lambda { sequence.pop }
     end
 
     specify do
-      subject.move.should == 'DYNAMITE'
-      subject.move.should == 'DYNAMITE'
       subject.move.should == 'SCISSORS'
-      subject.move.should == 'SCISSORS'
+      subject.opponent_move('SCISSORS')
+
+      subject.move.should == 'DYNAMITE'
+      subject.opponent_move('DYNAMITE')
+
+      subject.move.should == 'DYNAMITE'
+      subject.opponent_move('DYNAMITE')
+
       subject.move.should == 'SCISSORS'
     end
   end

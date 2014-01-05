@@ -8,25 +8,30 @@ class Match
       [
         'ROCK',
         'PAPER',
-        'SCISSORS',
-        'DYNAMITE'
+        'SCISSORS'
       ].sample
     end
+
+    @tie = false
   end
 
   def move
-    move = @random_move_generator.call
-
-    if move == 'DYNAMITE' and @dynamite_count <= 0
-      while move == 'DYNAMITE' do
-        move = @random_move_generator.call
-      end
+    if @tie and @dynamite_count > 0
+      move = 'DYNAMITE'
+    else
+      move = @random_move_generator.call
     end
 
     @dynamite_count -= 1 if move == 'DYNAMITE'
+    @last_move = move
     move
   end
 
   def opponent_move(move)
+    if @last_move == move
+      @tie = true
+    else
+      @tie = false
+    end
   end
 end
